@@ -1,0 +1,504 @@
+
+/* =========================================
+   FELIXA VISTAS - AMENITIES CAROUSEL
+========================================= */
+
+.fv-amenities {
+  --amenity-accent: #287875;
+  --amenity-heading: #292c35;
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(36px, 5vw, 72px) 0;
+
+  background: #fff;
+  color: var(--amenity-heading);
+}
+
+.fv-amenities-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.65fr);
+  align-items: stretch;
+  gap: clamp(30px, 4vw, 64px);
+
+  width: min(1600px, calc(100% - 104px));
+  margin-left: auto;
+  padding-left: 0;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.fv-amenities-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+
+.fv-amenities-eyebrow {
+  margin-bottom: 5px;
+
+  color: var(--amenity-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.fv-amenities-title {
+  margin: 0;
+
+  color: var(--amenity-heading);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(32px, 3.2vw, 46px);
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -1px;
+}
+
+.fv-amenities-check-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 5px;
+
+  color: var(--amenity-heading);
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fv-amenities-check-all svg {
+  width: 18px;
+  height: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+.fv-amenities-check-all:hover svg {
+  transform: translateX(4px);
+}
+
+/* Carousel arrow controls */
+
+.fv-amenities-controls {
+  display: flex;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.fv-amenities-controls button {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #d9dedc;
+  border-radius: 50%;
+
+  color: #292c35;
+  background: #fff;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.fv-amenities-controls button:hover:not(:disabled) {
+  color: #fff;
+  background: var(--amenity-accent);
+  border-color: var(--amenity-accent);
+}
+
+.fv-amenities-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   HORIZONTAL CAROUSEL
+========================================= */
+
+.fv-amenities-track {
+  display: grid;
+  grid-auto-columns: clamp(190px, 18vw, 260px);
+  grid-auto-flow: column;
+  gap: 14px;
+
+  min-width: 0;
+  padding: 0 0 8px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fv-amenities-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================
+   AMENITY CARDS
+========================================= */
+
+.fv-amenity-card {
+  position: relative;
+  isolation: isolate;
+
+  min-width: 0;
+  aspect-ratio: 0.68 / 1;
+
+  overflow: hidden;
+  border-radius: 5px;
+
+  background: #e8e8e3;
+  scroll-snap-align: start;
+
+  animation: fv-amenity-enter 0.75s both;
+}
+
+.fv-amenity-card:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.fv-amenity-card:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.fv-amenity-card:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.fv-amenity-card:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+.fv-amenity-card:nth-child(6) {
+  animation-delay: 400ms;
+}
+
+/* Full-bleed image */
+
+.fv-amenity-image {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.01);
+
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+/* Cinematic bottom gradient */
+
+.fv-amenity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgb(9 19 13 / 0%) 35%,
+    rgb(9 19 13 / 8%) 55%,
+    rgb(9 19 13 / 72%) 100%
+  );
+
+  transition: background 0.5s ease;
+}
+
+/* Card title */
+
+.fv-amenity-content {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  bottom: 19px;
+  left: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  color: #fff;
+  text-align: center;
+
+  transition: transform 0.45s ease;
+}
+
+.fv-amenity-number {
+  display: none;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.fv-amenity-content h3 {
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 700;
+  line-height: 1.4;
+
+  text-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+}
+
+/* Hover cinematic movement */
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-amenity-card:hover .fv-amenity-image {
+    transform: scale(1.09);
+    filter: saturate(1.08);
+  }
+
+  .fv-amenity-card:hover .fv-amenity-overlay {
+    background: linear-gradient(
+      180deg,
+      rgb(9 19 13 / 4%) 20%,
+      rgb(9 19 13 / 20%) 55%,
+      rgb(9 19 13 / 82%) 100%
+    );
+  }
+
+  .fv-amenity-card:hover .fv-amenity-content {
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================================
+   MOBILE SWIPE HINT
+========================================= */
+
+.fv-amenities-mobile-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 12px;
+
+  color: #72756f;
+  font-size: 11px;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-amenities-layout {
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.6fr);
+    gap: 30px;
+    width: calc(100% - 64px);
+  }
+
+  .fv-amenities-track {
+    grid-auto-columns: clamp(180px, 20vw, 235px);
+    gap: 12px;
+  }
+
+  .fv-amenities-title {
+    font-size: clamp(30px, 3.4vw, 40px);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-amenities {
+    padding-block: 44px;
+  }
+
+  .fv-amenities-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: calc(100% - 48px);
+  }
+
+  .fv-amenities-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 16px;
+  }
+
+  .fv-amenities-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .fv-amenities-title {
+    font-size: clamp(30px, 5vw, 42px);
+  }
+
+  .fv-amenities-check-all {
+    justify-self: end;
+    margin-bottom: 5px;
+    white-space: nowrap;
+  }
+
+  .fv-amenities-controls {
+    grid-column: 1 / -1;
+    padding-top: 14px;
+  }
+
+  .fv-amenities-track {
+    grid-auto-columns: clamp(210px, 34vw, 280px);
+    gap: 14px;
+  }
+
+  .fv-amenity-card {
+    aspect-ratio: 0.72 / 1;
+  }
+
+  .fv-amenity-content h3 {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-amenities {
+    padding-block: 36px;
+  }
+
+  .fv-amenities-layout {
+    width: calc(100% - 28px);
+    gap: 20px;
+  }
+
+  .fv-amenities-intro {
+    column-gap: 8px;
+  }
+
+  .fv-amenities-eyebrow {
+    font-size: 11px;
+  }
+
+  .fv-amenities-title {
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+  }
+
+  .fv-amenities-check-all {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .fv-amenities-controls {
+    display: none;
+  }
+
+  .fv-amenities-track {
+    grid-auto-columns: minmax(0, 76%);
+    grid-auto-columns: 76%;
+    gap: 12px;
+
+    margin-right: -14px;
+    padding-right: 14px;
+
+    scroll-padding-inline: 0;
+  }
+
+  .fv-amenity-card {
+    aspect-ratio: 0.78 / 1;
+    border-radius: 7px;
+  }
+
+  .fv-amenity-content {
+    right: 12px;
+    bottom: 17px;
+    left: 12px;
+  }
+
+  .fv-amenity-content h3 {
+    font-size: 14px;
+  }
+
+  .fv-amenities-mobile-hint {
+    display: flex;
+    width: calc(100% - 28px);
+    margin-inline: auto;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-amenities-title {
+    font-size: 27px;
+  }
+
+  .fv-amenities-track {
+    grid-auto-columns: 84%;
+  }
+
+  .fv-amenity-content h3 {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   ANIMATIONS & ACCESSIBILITY
+========================================= */
+
+@keyframes fv-amenity-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-amenity-card {
+    animation: none;
+  }
+
+  .fv-amenity-image,
+  .fv-amenity-content,
+  .fv-amenities-check-all svg {
+    transition: none;
+  }
+
+  .fv-amenities-track {
+    scroll-behavior: auto;
+  }
+}

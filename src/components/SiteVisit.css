@@ -1,0 +1,547 @@
+
+/* =========================================
+   FELIXA VISTAS - SITE VISIT ENQUIRY
+   Cinematic background | Form + Google Map
+========================================= */
+
+.fv-site-visit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(36px, 5.5vw, 72px) 0;
+
+  background: #315f65;
+  color: #29233b;
+}
+
+/* =========================================
+   BACKGROUND IMAGE
+========================================= */
+
+.fv-site-visit-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image: url("/images/footer.webp");
+  background-size: cover;
+  background-position: center 52%;
+  background-repeat: no-repeat;
+
+  transform: scale(1.035);
+  transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-site-visit:hover .fv-site-visit-bg {
+  transform: scale(1.015);
+}
+
+.fv-site-visit-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background: linear-gradient(
+    110deg,
+    rgb(16 49 57 / 24%),
+    rgb(15 49 57 / 8%) 55%,
+    rgb(16 49 57 / 18%)
+  );
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.fv-site-visit-container {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: stretch;
+  gap: clamp(24px, 4.2vw, 56px);
+
+  width: min(1400px, calc(100% - 100px));
+  margin-inline: auto;
+}
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.fv-site-visit-card {
+  min-width: 0;
+  padding: clamp(22px, 2.8vw, 38px);
+
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 9px;
+
+  background: #fff;
+  box-shadow: 0 18px 60px rgb(15 34 38 / 13%);
+
+  opacity: 0;
+  transform: translate3d(-24px, 0, 0);
+
+  animation: fv-site-card-enter 0.85s 0.1s ease forwards;
+}
+
+.fv-site-visit-heading {
+  margin-bottom: 24px;
+}
+
+.fv-site-visit-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #287875;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1.25px;
+}
+
+.fv-site-visit-heading h2 {
+  margin: 0;
+
+  color: #29233b;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(23px, 2.2vw, 31px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.6px;
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.fv-site-visit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.fv-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.fv-form-field label {
+  color: #302b3b;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.fv-form-field input,
+.fv-form-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 43px;
+  padding: 0 12px;
+
+  border: 1px solid #e6dfeb;
+  border-radius: 4px;
+  outline: none;
+
+  color: #302b3b;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.fv-form-field input::placeholder {
+  color: #9b9aa4;
+}
+
+.fv-form-field input:focus,
+.fv-form-field select:focus {
+  border-color: #287875;
+  box-shadow: 0 0 0 3px rgb(40 120 117 / 10%);
+}
+
+.fv-form-field select {
+  cursor: pointer;
+}
+
+.fv-form-field select:invalid {
+  color: #777581;
+}
+
+/* Phone + email side by side */
+
+.fv-form-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* =========================================
+   CONSENT
+========================================= */
+
+.fv-visit-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  color: #686571;
+  font-size: 10px;
+  line-height: 1.6;
+
+  cursor: pointer;
+}
+
+.fv-visit-consent input {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  margin: 1px 0 0;
+
+  accent-color: #287875;
+  cursor: pointer;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.fv-visit-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 18px;
+
+  border: 1px solid #287875;
+  border-radius: 3px;
+
+  color: #fff;
+  background: #287875;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fv-visit-submit-arrow {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 400;
+
+  transition: transform 0.3s ease;
+}
+
+.fv-visit-submit:hover {
+  background: #216663;
+  border-color: #216663;
+  box-shadow: 0 8px 20px rgb(40 120 117 / 20%);
+}
+
+.fv-visit-submit:hover .fv-visit-submit-arrow {
+  transform: translateX(4px);
+}
+
+.fv-visit-submit:focus-visible {
+  outline: 3px solid rgb(40 120 117 / 35%);
+  outline-offset: 3px;
+}
+
+.fv-visit-status {
+  margin: 0;
+  color: #287875;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.fv-visit-privacy {
+  margin: 0;
+
+  color: #85818d;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   GOOGLE MAP
+========================================= */
+
+.fv-site-visit-map {
+  position: relative;
+  isolation: isolate;
+
+  min-width: 0;
+  min-height: 420px;
+
+  overflow: hidden;
+  background: #e7ece9;
+
+  box-shadow: 0 18px 60px rgb(15 34 38 / 14%);
+
+  opacity: 0;
+  transform: translate3d(24px, 0, 0);
+
+  animation: fv-site-map-enter 0.9s 0.2s ease forwards;
+}
+
+.fv-site-visit-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+
+  border: 0;
+}
+
+.fv-map-open-link {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 15px;
+
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 4px;
+
+  color: #292c35;
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 5px 20px rgb(0 0 0 / 12%);
+
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fv-map-open-link:hover {
+  color: #fff;
+  background: #287875;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   CINEMATIC ENTRANCE
+========================================= */
+
+@keyframes fv-site-card-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fv-site-map-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-site-visit-container {
+    width: calc(100% - 72px);
+    gap: 30px;
+  }
+
+  .fv-site-visit-card {
+    padding: 26px;
+  }
+
+  .fv-site-visit-map,
+  .fv-site-visit-map iframe {
+    min-height: 400px;
+  }
+
+  .fv-site-visit-form {
+    gap: 15px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-site-visit {
+    padding-block: 44px;
+  }
+
+  .fv-site-visit-container {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 48px);
+    gap: 24px;
+  }
+
+  .fv-site-visit-card {
+    padding: clamp(24px, 4vw, 34px);
+  }
+
+  .fv-site-visit-heading h2 {
+    font-size: clamp(25px, 4vw, 32px);
+  }
+
+  .fv-site-visit-map,
+  .fv-site-visit-map iframe {
+    min-height: 350px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-site-visit {
+    padding-block: 30px;
+  }
+
+  .fv-site-visit-bg {
+    background-position: center;
+  }
+
+  .fv-site-visit-container {
+    width: calc(100% - 32px);
+    gap: 20px;
+  }
+
+  .fv-site-visit-card {
+    padding: 23px 18px;
+    border-radius: 8px;
+  }
+
+  .fv-site-visit-heading {
+    margin-bottom: 22px;
+  }
+
+  .fv-site-visit-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .fv-site-visit-heading h2 {
+    font-size: 26px;
+  }
+
+  .fv-site-visit-form {
+    gap: 15px;
+  }
+
+  .fv-form-two-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .fv-form-field input,
+  .fv-form-field select {
+    height: 45px;
+    font-size: 13px;
+  }
+
+  .fv-form-field label {
+    font-size: 11px;
+  }
+
+  .fv-visit-consent {
+    font-size: 10px;
+  }
+
+  .fv-visit-submit {
+    min-height: 47px;
+  }
+
+  .fv-visit-privacy {
+    font-size: 10px;
+  }
+
+  .fv-site-visit-map,
+  .fv-site-visit-map iframe {
+    min-height: 320px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-site-visit-container {
+    width: calc(100% - 24px);
+  }
+
+  .fv-site-visit-card {
+    padding: 20px 14px;
+  }
+
+  .fv-site-visit-heading h2 {
+    font-size: 24px;
+  }
+
+  .fv-site-visit-map,
+  .fv-site-visit-map iframe {
+    min-height: 280px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-site-visit-bg,
+  .fv-site-visit-card,
+  .fv-site-visit-map {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .fv-visit-submit,
+  .fv-visit-submit-arrow,
+  .fv-map-open-link {
+    transition: none;
+  }
+}

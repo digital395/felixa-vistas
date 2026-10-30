@@ -1,0 +1,323 @@
+
+/* =========================================
+   FELIXA VISTAS - PROJECT VIDEO BANNER
+========================================= */
+
+.fv-video-section {
+  position: relative;
+  padding: clamp(32px, 5vw, 64px) 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.fv-video-container {
+  width: min(1400px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+/* Clickable image */
+
+.fv-video-preview {
+  position: relative;
+  isolation: isolate;
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 2.42 / 1;
+
+  padding: 0;
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #e9e7df;
+  cursor: pointer;
+  text-align: center;
+}
+
+.fv-video-cover {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  transform: scale(1.025);
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease;
+}
+
+/* Cinematic image treatment */
+
+.fv-video-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgb(12 20 15 / 5%) 0%,
+    rgb(12 20 15 / 8%) 55%,
+    rgb(12 20 15 / 20%) 100%
+  );
+
+  transition: background 0.5s ease;
+}
+
+/* Center play button */
+
+.fv-video-play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+
+  display: grid;
+  place-items: center;
+
+  width: clamp(56px, 6vw, 76px);
+  aspect-ratio: 1;
+
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 50%;
+
+  color: #28736f;
+  background: rgb(255 255 255 / 96%);
+
+  box-shadow:
+    0 6px 24px rgb(0 0 0 / 12%),
+    0 0 0 0 rgb(255 255 255 / 25%);
+
+  transform: translate(-50%, -50%);
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-video-play svg {
+  width: 23px;
+  height: 23px;
+  margin-left: 3px;
+}
+
+/* Hover effects for mouse devices */
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-video-preview:hover .fv-video-cover {
+    transform: scale(1.075);
+    filter: saturate(1.08);
+  }
+
+  .fv-video-preview:hover .fv-video-shade {
+    background: rgb(15 30 24 / 17%);
+  }
+
+  .fv-video-preview:hover .fv-video-play {
+    color: #fff;
+    background: #28736f;
+    box-shadow:
+      0 8px 28px rgb(0 0 0 / 20%),
+      0 0 0 12px rgb(255 255 255 / 15%);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+.fv-video-preview:focus-visible {
+  outline: 3px solid #28736f;
+  outline-offset: 5px;
+}
+
+/* =========================================
+   VIDEO MODAL PLACEHOLDER
+========================================= */
+
+.fv-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: rgb(12 18 15 / 90%);
+  backdrop-filter: blur(14px);
+
+  animation: fv-video-fade-in 0.3s ease both;
+}
+
+.fv-video-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 50%;
+
+  color: #fff;
+  background: rgb(255 255 255 / 8%);
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.fv-video-modal-content {
+  width: min(620px, 100%);
+  padding: 36px;
+
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 14px;
+
+  color: #fff;
+  background: rgb(255 255 255 / 6%);
+  text-align: center;
+
+  animation: fv-video-content-in 0.45s ease both;
+}
+
+.fv-video-modal-eyebrow {
+  color: #d6bd88;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.fv-video-modal-content h2 {
+  margin: 14px 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 500;
+}
+
+.fv-video-modal-content > p:last-child {
+  color: rgb(255 255 255 / 75%);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1024px) {
+  .fv-video-container {
+    width: calc(100% - 64px);
+  }
+
+  .fv-video-preview {
+    aspect-ratio: 2 / 1;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fv-video-section {
+    padding-block: 36px;
+  }
+
+  .fv-video-container {
+    width: calc(100% - 40px);
+  }
+
+  .fv-video-preview {
+    aspect-ratio: 1.5 / 1;
+    border-radius: 9px;
+  }
+
+  .fv-video-play {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fv-video-section {
+    padding-block: 26px;
+  }
+
+  .fv-video-container {
+    width: calc(100% - 28px);
+  }
+
+  .fv-video-preview {
+    aspect-ratio: 1.15 / 1;
+    border-radius: 8px;
+  }
+
+  .fv-video-cover {
+    object-position: center;
+  }
+
+  .fv-video-play {
+    width: 54px;
+  }
+
+  .fv-video-play svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fv-video-modal {
+    padding: 18px;
+  }
+
+  .fv-video-close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .fv-video-modal-content {
+    padding: 28px 20px;
+  }
+}
+
+/* Accessibility */
+
+@keyframes fv-video-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fv-video-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-video-cover,
+  .fv-video-shade,
+  .fv-video-play,
+  .fv-video-modal,
+  .fv-video-modal-content {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .fv-video-cover {
+    transform: none;
+  }
+}

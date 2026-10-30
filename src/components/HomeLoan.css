@@ -1,0 +1,346 @@
+
+/* =========================================
+   FELIXA VISTAS - HOME LOAN FACILITIES
+   Cinematic | Responsive | Premium
+========================================= */
+
+.fv-home-loan {
+  --loan-accent: #287875;
+  --loan-heading: #292c35;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(38px, 5vw, 68px) 0;
+
+  background: #f7f3ed;
+  color: var(--loan-heading);
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.fv-home-loan-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  column-gap: clamp(30px, 5vw, 76px);
+  row-gap: 30px;
+
+  width: min(1400px, calc(100% - 100px));
+  margin-inline: auto;
+}
+
+/* =========================================
+   HEADING AND DESCRIPTION
+========================================= */
+
+.fv-home-loan-copy {
+  min-width: 0;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-home-loan.is-visible .fv-home-loan-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fv-home-loan-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--loan-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  line-height: 1.5;
+}
+
+.fv-home-loan-title {
+  margin: 0;
+
+  color: var(--loan-heading);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(25px, 2.5vw, 35px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.45px;
+}
+
+.fv-home-loan-description {
+  max-width: 720px;
+  margin: 14px 0 0;
+
+  color: #45454b;
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================
+   BANK LOGO GRID
+========================================= */
+
+.fv-home-loan-banks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+
+  column-gap: clamp(16px, 2.5vw, 34px);
+  row-gap: 30px;
+
+  min-width: 0;
+  padding: 8px 0;
+}
+
+.fv-home-loan-bank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.65s var(--bank-delay, 0ms) ease,
+    transform 0.65s var(--bank-delay, 0ms)
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-home-loan.is-visible .fv-home-loan-bank {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fv-home-loan-bank img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 37px;
+
+  object-fit: contain;
+  object-position: center;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Logo-specific sizing */
+
+.fv-home-loan-bank.axis img {
+  max-width: 120px;
+  max-height: 34px;
+}
+
+.fv-home-loan-bank.icici img {
+  max-width: 125px;
+  max-height: 35px;
+}
+
+.fv-home-loan-bank.lic img {
+  max-width: 82px;
+  max-height: 40px;
+}
+
+.fv-home-loan-bank.idbi img {
+  max-width: 125px;
+  max-height: 35px;
+}
+
+.fv-home-loan-bank.hdfc img {
+  max-width: 125px;
+  max-height: 35px;
+}
+
+.fv-home-loan-bank.sbi img {
+  max-width: 80px;
+  max-height: 37px;
+}
+
+/* Subtle interaction */
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-home-loan-bank:hover img {
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-home-loan-container {
+    width: calc(100% - 72px);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: 32px;
+  }
+
+  .fv-home-loan-title {
+    font-size: clamp(24px, 2.7vw, 32px);
+  }
+
+  .fv-home-loan-banks {
+    column-gap: 16px;
+    row-gap: 25px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-home-loan {
+    padding-block: 46px;
+  }
+
+  .fv-home-loan-container {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 48px);
+    gap: 30px;
+  }
+
+  .fv-home-loan-title {
+    font-size: clamp(27px, 4vw, 35px);
+  }
+
+  .fv-home-loan-description {
+    max-width: 720px;
+    font-size: 13px;
+  }
+
+  .fv-home-loan-banks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 26px;
+    max-width: 680px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .fv-home-loan-bank img {
+    max-height: 38px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-home-loan {
+    padding-block: 38px;
+  }
+
+  .fv-home-loan-container {
+    width: calc(100% - 36px);
+    gap: 25px;
+  }
+
+  .fv-home-loan-eyebrow {
+    font-size: 10px;
+  }
+
+  .fv-home-loan-title {
+    font-size: clamp(25px, 6.6vw, 32px);
+    line-height: 1.3;
+    letter-spacing: -0.35px;
+  }
+
+  .fv-home-loan-desktop-break {
+    display: none;
+  }
+
+  .fv-home-loan-description {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .fv-home-loan-banks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 24px;
+    padding: 5px 0;
+  }
+
+  .fv-home-loan-bank {
+    min-height: 38px;
+  }
+
+  .fv-home-loan-bank img {
+    max-width: 125px;
+    max-height: 36px;
+  }
+
+  .fv-home-loan-bank.lic img {
+    max-height: 42px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-home-loan {
+    padding-block: 32px;
+  }
+
+  .fv-home-loan-container {
+    width: calc(100% - 28px);
+    gap: 22px;
+  }
+
+  .fv-home-loan-title {
+    font-size: 24px;
+  }
+
+  .fv-home-loan-description {
+    font-size: 11px;
+  }
+
+  .fv-home-loan-banks {
+    column-gap: 12px;
+    row-gap: 22px;
+  }
+
+  .fv-home-loan-bank img {
+    max-width: 112px;
+    max-height: 32px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-home-loan-copy,
+  .fv-home-loan-bank {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .fv-home-loan-bank img {
+    transition: none;
+  }
+}

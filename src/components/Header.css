@@ -1,0 +1,485 @@
+
+/* =========================================
+   FELIXA VISTAS — CINEMATIC NAVIGATION
+========================================= */
+
+.fv-header {
+  --fv-gold: #e8ca91;
+  --fv-teal: #28736f;
+  --fv-dark: #101e2b;
+
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 18px 0;
+
+  background: linear-gradient(
+    180deg,
+    rgb(9 17 15 / 38%) 0%,
+    rgb(9 17 15 / 12%) 75%,
+    transparent 100%
+  );
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    padding 350ms ease,
+    background 350ms ease,
+    border-color 350ms ease,
+    box-shadow 350ms ease;
+}
+
+/* Scrolled glass navbar */
+.fv-header.is-scrolled {
+  padding: 11px 0;
+
+  background: rgb(16 30 43 / 92%);
+  border-bottom-color: rgb(255 255 255 / 9%);
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 8px 35px rgb(0 0 0 / 12%);
+}
+
+/* Inner container */
+.fv-header-inner {
+  width: min(1540px, calc(100% - 100px));
+  min-height: 62px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.fv-brand {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.fv-logo {
+  display: block;
+  width: auto;
+  height: 57px;
+  max-width: 200px;
+  object-fit: contain;
+
+  transition:
+    height 350ms ease,
+    transform 350ms ease,
+    filter 350ms ease;
+}
+
+.fv-brand:hover .fv-logo {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 12px rgb(232 202 145 / 15%));
+}
+
+.fv-header.is-scrolled .fv-logo {
+  height: 48px;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.fv-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(18px, 2.2vw, 36px);
+}
+
+.fv-nav-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 12px 0;
+
+  color: rgb(255 255 255 / 91%);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.35px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 250ms ease;
+}
+
+/* Gold underline animation */
+.fv-nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--fv-gold);
+  content: "";
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 300ms ease;
+}
+
+.fv-nav-link:hover,
+.fv-nav-link:focus-visible {
+  color: var(--fv-gold);
+}
+
+.fv-nav-link:hover::after,
+.fv-nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* =========================================
+   ENQUIRE CTA
+========================================= */
+
+.fv-nav-cta {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  min-height: 47px;
+  padding: 0 19px;
+
+  overflow: hidden;
+
+  border: 1px solid rgb(232 202 145 / 70%);
+  border-radius: 4px;
+
+  color: #fff;
+  background: var(--fv-teal);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  box-shadow: 0 7px 22px rgb(0 0 0 / 10%);
+
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.fv-nav-cta::before {
+  position: absolute;
+  top: 0;
+  left: -130%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgb(255 255 255 / 18%),
+    transparent
+  );
+
+  content: "";
+  transform: skewX(-20deg);
+  transition: left 600ms ease;
+}
+
+.fv-nav-cta:hover::before {
+  left: 150%;
+}
+
+.fv-nav-cta:hover {
+  color: #fff;
+  background: #215a57;
+  border-color: var(--fv-gold);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 20%);
+  transform: translateY(-2px);
+}
+
+.fv-cta-arrow {
+  color: var(--fv-gold);
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 250ms ease;
+}
+
+.fv-nav-cta:hover .fv-cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   HAMBURGER
+========================================= */
+
+.fv-menu-toggle {
+  display: none;
+  position: relative;
+  z-index: 3;
+
+  width: 45px;
+  height: 45px;
+  padding: 12px;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 4px;
+
+  color: #fff;
+  background: rgb(255 255 255 / 8%);
+
+  cursor: pointer;
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  transition:
+    background 250ms ease,
+    border-color 250ms ease;
+}
+
+.fv-menu-toggle span {
+  display: block;
+
+  width: 19px;
+  height: 1.5px;
+
+  background: #fff;
+  border-radius: 2px;
+
+  transition:
+    transform 300ms ease,
+    opacity 200ms ease;
+}
+
+.fv-menu-toggle:hover {
+  border-color: var(--fv-gold);
+  background: rgb(255 255 255 / 14%);
+}
+
+.fv-menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.fv-menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.fv-menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* =========================================
+   TABLET & MOBILE
+========================================= */
+
+@media (max-width: 1024px) {
+  .fv-header {
+    padding: 13px 0;
+  }
+
+  .fv-header-inner {
+    width: calc(100% - 48px);
+    min-height: 55px;
+    gap: 20px;
+  }
+
+  .fv-logo {
+    height: 49px;
+    max-width: 175px;
+  }
+
+  .fv-header.is-scrolled .fv-logo {
+    height: 44px;
+  }
+
+  .fv-menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .fv-navigation {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+
+    max-height: calc(100svh - 80px);
+    padding: 12px 24px 24px;
+    overflow-y: auto;
+
+    background: rgb(16 30 43 / 97%);
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity 250ms ease,
+      transform 250ms ease,
+      visibility 250ms ease;
+  }
+
+  .fv-navigation.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .fv-nav-link {
+    min-height: 49px;
+    padding: 15px 4px;
+
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+
+    color: rgb(255 255 255 / 92%);
+    font-size: 13px;
+
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .fv-navigation.is-open .fv-nav-link {
+    animation: fv-nav-item-reveal 350ms ease forwards;
+    animation-delay: calc(var(--nav-index, 0) * 45ms);
+  }
+
+  .fv-nav-link::after {
+    display: none;
+  }
+
+  .fv-nav-link:hover {
+    padding-left: 10px;
+  }
+
+  .fv-nav-cta {
+    align-self: flex-start;
+    margin-top: 19px;
+    min-height: 47px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .fv-header {
+    padding: 10px 0;
+  }
+
+  .fv-header.is-scrolled {
+    padding: 8px 0;
+  }
+
+  .fv-header-inner {
+    width: calc(100% - 32px);
+    min-height: 49px;
+  }
+
+  .fv-logo {
+    height: 43px;
+    max-width: 155px;
+  }
+
+  .fv-header.is-scrolled .fv-logo {
+    height: 39px;
+  }
+
+  .fv-menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .fv-navigation {
+    padding: 10px 20px 24px;
+  }
+
+  .fv-nav-link {
+    min-height: 47px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile scroll lock when menu is open */
+body.fv-menu-open {
+  overflow: hidden;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fv-nav-item-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fv-header,
+  .fv-logo,
+  .fv-nav-link,
+  .fv-nav-cta,
+  .fv-cta-arrow,
+  .fv-menu-toggle,
+  .fv-menu-toggle span,
+  .fv-navigation {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .fv-nav-link {
+    opacity: 1;
+    transform: none;
+  }
+}

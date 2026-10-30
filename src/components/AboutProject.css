@@ -1,0 +1,499 @@
+/* =========================================
+   FELIXA VISTAS - ABOUT PROJECT
+   Cinematic | Responsive | Premium
+========================================= */
+
+.fv-about {
+  --about-accent: #287875;
+  --about-heading: #292c35;
+  --about-body: #393b44;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(72px, 8vw, 120px) 0;
+
+  background: #fff;
+  color: var(--about-body);
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.fv-about-container {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(0, 1.08fr);
+
+  align-items: start;
+
+  gap: clamp(55px, 7vw, 105px);
+
+  width: min(1400px, calc(100% - 124px));
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.fv-about-content {
+  width: 100%;
+  max-width: 650px;
+
+  padding-top: 2px;
+
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-about.is-visible .fv-about-content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.fv-about-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: var(--about-accent);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.fv-about-title {
+  max-width: 650px;
+
+  margin: 0 0 22px;
+
+  color: var(--about-heading);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: clamp(30px, 2.45vw, 40px);
+  font-weight: 700;
+  line-height: 1.17;
+
+  letter-spacing: -0.8px;
+
+  text-wrap: balance;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.fv-about-description {
+  max-width: 620px;
+
+  margin: 0 0 14px;
+
+  color: var(--about-body);
+
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 400;
+  line-height: 1.85;
+
+  letter-spacing: 0.01px;
+}
+
+
+/*
+   Last paragraph should not create
+   unnecessary spacing before CTA
+*/
+
+.fv-about-description:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   PROJECT LINK
+========================================= */
+
+.fv-about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 27px;
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid rgb(40 120 117 / 45%);
+
+  color: var(--about-accent);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.fv-about-link span {
+  font-size: 16px;
+
+  transition: transform 0.3s ease;
+}
+
+.fv-about-link:hover {
+  gap: 20px;
+
+  color: #194f4c;
+
+  border-color: #194f4c;
+}
+
+.fv-about-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================
+   RIGHT IMAGE
+========================================= */
+
+.fv-about-visual {
+  position: relative;
+
+  min-width: 0;
+
+  padding-top: 70px;
+
+  opacity: 0;
+  transform: translate3d(30px, 0, 0);
+
+  transition:
+    opacity 1s 0.15s ease,
+    transform 1s 0.15s
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-about.is-visible .fv-about-visual {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
+/* =========================================
+   IMAGE FRAME
+========================================= */
+
+.fv-about-image-frame {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+
+  aspect-ratio: 1.42 / 1;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  background: #eeece6;
+}
+
+.fv-about-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.045);
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease;
+}
+
+.fv-about.is-visible .fv-about-image {
+  transform: scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-about-image-frame:hover .fv-about-image {
+    transform: scale(1.045);
+    filter: saturate(1.03);
+  }
+}
+
+
+/* =========================================
+   CINEMATIC IMAGE SHADE
+========================================= */
+
+.fv-about-image-shade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgb(20 28 22 / 5%),
+    transparent 45%,
+    rgb(20 28 22 / 4%)
+  );
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1400px) {
+  .fv-about-container {
+    gap: 100px;
+  }
+
+  .fv-about-content {
+    max-width: 660px;
+  }
+
+  .fv-about-title {
+    font-size: 40px;
+  }
+
+  .fv-about-description {
+    max-width: 630px;
+
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .fv-about-visual {
+    padding-top: 78px;
+  }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-about {
+    padding-block: 82px;
+  }
+
+  .fv-about-container {
+    width: calc(100% - 80px);
+
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(0, 1.05fr);
+
+    gap: 55px;
+  }
+
+  .fv-about-content {
+    max-width: 600px;
+  }
+
+  .fv-about-title {
+    font-size: clamp(28px, 2.8vw, 36px);
+  }
+
+  .fv-about-description {
+    font-size: 14px;
+    line-height: 1.82;
+  }
+
+  .fv-about-visual {
+    padding-top: 55px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-about {
+    padding-block: 72px;
+  }
+
+  .fv-about-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    width: calc(100% - 56px);
+
+    gap: 32px;
+  }
+
+  .fv-about-content {
+    max-width: 100%;
+  }
+
+  .fv-about-title {
+    font-size: clamp(23px, 3vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .fv-about-description {
+    font-size: 13px;
+    line-height: 1.8;
+
+    margin-bottom: 12px;
+  }
+
+  .fv-about-visual {
+    padding-top: 42px;
+  }
+
+  .fv-about-image-frame {
+    aspect-ratio: 1.05 / 1;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .fv-about {
+    padding-block: 58px;
+  }
+
+  .fv-about-container {
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 30px;
+
+    width: calc(100% - 36px);
+  }
+
+  .fv-about-content {
+    max-width: 100%;
+  }
+
+  .fv-about-eyebrow {
+    margin-bottom: 9px;
+
+    font-size: 11px;
+  }
+
+  .fv-about-title {
+    margin-bottom: 17px;
+
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.22;
+    letter-spacing: -0.6px;
+  }
+
+  .fv-about-description {
+    max-width: 100%;
+
+    margin-bottom: 13px;
+
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .fv-about-link {
+    margin-top: 21px;
+  }
+
+  .fv-about-visual {
+    padding-top: 0;
+  }
+
+  .fv-about-image-frame {
+    aspect-ratio: 1.25 / 1;
+
+    border-radius: 7px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .fv-about {
+    padding-block: 46px;
+  }
+
+  .fv-about-container {
+    width: calc(100% - 28px);
+
+    gap: 24px;
+  }
+
+  .fv-about-title {
+    font-size: 25px;
+  }
+
+  .fv-about-description {
+    font-size: 13px;
+  }
+
+  .fv-about-image-frame {
+    aspect-ratio: 1.12 / 1;
+  }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-about-content,
+  .fv-about-visual,
+  .fv-about-image,
+  .fv-about-link,
+  .fv-about-link span {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .fv-about-content,
+  .fv-about-visual {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,388 @@
+
+/* =========================================
+   FELIXA VISTAS - LOCATION ADVANTAGES
+========================================= */
+
+.fv-advantages {
+  --adv-teal: #287875;
+  --adv-dark: #292c35;
+  --adv-light: #e2eded;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(65px, 7vw, 110px) 0;
+  background: #fff;
+  color: var(--adv-dark);
+}
+
+.fv-advantages-container {
+  width: min(1400px, calc(100% - 100px));
+  margin-inline: auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.fv-advantages-heading {
+  max-width: 800px;
+  animation: fv-adv-reveal 0.9s ease both;
+}
+
+.fv-advantages-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--adv-teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.fv-advantages-heading h2 {
+  margin: 0 0 14px;
+  color: var(--adv-dark);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(27px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.8px;
+}
+
+.fv-advantages-heading p {
+  max-width: 780px;
+  margin: 0;
+  color: #454650;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.85;
+}
+
+/* =========================================
+   CATEGORY BUTTONS
+========================================= */
+
+.fv-advantages-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.fv-advantages-tab {
+  min-height: 42px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #2b3e3d;
+  background: #dce8e8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fv-advantages-tab.active {
+  color: #fff;
+  background: var(--adv-teal);
+  box-shadow: 0 8px 22px rgb(40 120 117 / 17%);
+}
+
+.fv-advantages-tab:hover:not(.active) {
+  background: #c7dada;
+  transform: translateY(-2px);
+}
+
+.fv-advantages-tab:focus-visible {
+  outline: 3px solid var(--adv-teal);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.fv-advantages-timeline-viewport {
+  width: 100%;
+  margin-top: 58px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #aacac8 transparent;
+}
+
+.fv-advantages-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--item-count), minmax(0, 1fr));
+  min-width: 680px;
+  padding: 0 0 20px;
+}
+
+.fv-advantages-line {
+  position: absolute;
+  top: 56px;
+  left: calc(100% / (2 * var(--item-count)));
+  right: calc(100% / (2 * var(--item-count)));
+  height: 3px;
+  background: var(--adv-teal);
+  transform-origin: left;
+  animation: fv-adv-line 0.8s ease both;
+}
+
+.fv-advantages-place {
+  position: relative;
+  min-width: 0;
+  padding: 0 15px;
+  text-align: center;
+
+  animation: fv-adv-item 0.6s both;
+  animation-delay: calc(var(--item-index) * 100ms);
+}
+
+.fv-advantages-distance {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 32px;
+  padding: 7px 14px;
+  border-radius: 30px;
+
+  color: var(--adv-teal);
+  background: #e4f0ef;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fv-advantages-dot {
+  position: relative;
+  z-index: 2;
+
+  width: 18px;
+  height: 18px;
+  margin: 15px auto 22px;
+
+  border: 3px solid var(--adv-teal);
+  border-radius: 50%;
+  background: #fff;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fv-advantages-place:hover .fv-advantages-dot {
+  background: var(--adv-teal);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 8px rgb(40 120 117 / 10%);
+}
+
+.fv-advantages-place-content {
+  max-width: 240px;
+  margin-inline: auto;
+}
+
+.fv-advantages-place-content h3 {
+  margin: 0 0 10px;
+  color: var(--adv-dark);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(15px, 1.5vw, 21px);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.fv-advantages-place-content > span {
+  color: #7c7d84;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.fv-advantages-note {
+  margin: 24px 0 0;
+  color: #85878b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-advantages-container {
+    width: calc(100% - 72px);
+  }
+
+  .fv-advantages-tabs {
+    margin-top: 32px;
+  }
+
+  .fv-advantages-timeline-viewport {
+    margin-top: 48px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-advantages {
+    padding-block: 65px;
+  }
+
+  .fv-advantages-container {
+    width: calc(100% - 48px);
+  }
+
+  .fv-advantages-heading h2 {
+    font-size: clamp(27px, 4vw, 36px);
+  }
+
+  .fv-advantages-tabs {
+    gap: 9px;
+  }
+
+  .fv-advantages-tab {
+    min-height: 40px;
+    padding-inline: 15px;
+  }
+
+  .fv-advantages-timeline {
+    min-width: 760px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-advantages {
+    padding-block: 48px;
+  }
+
+  .fv-advantages-container {
+    width: calc(100% - 32px);
+  }
+
+  .fv-advantages-eyebrow {
+    font-size: 11px;
+  }
+
+  .fv-advantages-heading h2 {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.25;
+  }
+
+  .fv-advantages-heading p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .fv-advantages-tabs {
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 26px;
+    padding-bottom: 10px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .fv-advantages-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fv-advantages-tab {
+    flex-shrink: 0;
+    min-height: 38px;
+    padding-inline: 13px;
+    font-size: 10px;
+    scroll-snap-align: start;
+  }
+
+  .fv-advantages-timeline-viewport {
+    margin-top: 32px;
+    padding-bottom: 10px;
+    scroll-snap-type: x proximity;
+  }
+
+  .fv-advantages-timeline {
+    min-width: 800px;
+  }
+
+  .fv-advantages-place {
+    scroll-snap-align: center;
+  }
+
+  .fv-advantages-place-content h3 {
+    font-size: 16px;
+  }
+
+  .fv-advantages-distance {
+    font-size: 10px;
+  }
+
+  .fv-advantages-note {
+    margin-top: 12px;
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fv-adv-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fv-adv-item {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fv-adv-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-advantages *,
+  .fv-advantages *::before,
+  .fv-advantages *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

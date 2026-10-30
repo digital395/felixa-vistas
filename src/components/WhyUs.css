@@ -1,0 +1,390 @@
+/* =========================================
+   FELIXA VISTAS - PROJECT HIGHLIGHTS
+   Cinematic | Responsive | Premium
+========================================= */
+
+.fv-why {
+  --why-accent: #287875;
+  --why-heading: #292c35;
+  --why-body: #393b44;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(64px, 7vw, 100px) 0;
+
+  background: #fff;
+  color: var(--why-body);
+}
+
+.fv-why-container {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  align-items: center;
+  gap: clamp(42px, 7vw, 90px);
+
+  width: min(1400px, calc(100% - 100px));
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.fv-why-visual {
+  min-width: 0;
+
+  opacity: 0;
+  transform: translate3d(-32px, 0, 0);
+
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-why.is-visible .fv-why-visual {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fv-why-image-frame {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  aspect-ratio: 1.15 / 1;
+
+  overflow: hidden;
+  border-radius: 5px;
+
+  background: #eeece6;
+}
+
+.fv-why-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.055);
+
+  transition:
+    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+}
+
+.fv-why.is-visible .fv-why-image {
+  transform: scale(1);
+}
+
+.fv-why-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgb(19 30 23 / 5%),
+    transparent 50%,
+    rgb(19 30 23 / 4%)
+  );
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-why-image-frame:hover .fv-why-image {
+    transform: scale(1.045);
+    filter: saturate(1.04);
+  }
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.fv-why-content {
+  min-width: 0;
+  max-width: 580px;
+
+  opacity: 0;
+  transform: translate3d(28px, 0, 0);
+
+  transition:
+    opacity 0.9s 0.12s ease,
+    transform 0.9s 0.12s
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-why.is-visible .fv-why-content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fv-why-eyebrow {
+  display: inline-block;
+  margin-bottom: 6px;
+
+  color: var(--why-accent);
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.fv-why-title {
+  margin: 0;
+
+  color: var(--why-heading);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+
+/* =========================================
+   PROJECT HIGHLIGHTS
+========================================= */
+
+.fv-why-features {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  margin-top: 28px;
+}
+
+.fv-why-feature {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+
+  opacity: 0;
+  transform: translateY(14px);
+
+  transition:
+    opacity 0.65s var(--feature-delay, 0ms) ease,
+    transform 0.65s var(--feature-delay, 0ms)
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-why.is-visible .fv-why-feature {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fv-why-check {
+  display: block;
+
+  width: 19px;
+  height: 19px;
+
+  color: var(--why-accent);
+}
+
+.fv-why-check svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.fv-why-feature-body {
+  min-width: 0;
+}
+
+.fv-why-feature h3 {
+  margin: 0;
+
+  color: var(--why-heading);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-why-container {
+    width: calc(100% - 80px);
+    gap: 48px;
+  }
+
+  .fv-why-image-frame {
+    aspect-ratio: 1.05 / 1;
+  }
+
+  .fv-why-title {
+    font-size: clamp(29px, 3vw, 38px);
+  }
+
+  .fv-why-feature h3 {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-why {
+    padding-block: 64px;
+  }
+
+  .fv-why-container {
+    width: calc(100% - 48px);
+    gap: 28px;
+  }
+
+  .fv-why-image-frame {
+    aspect-ratio: 0.9 / 1;
+  }
+
+  .fv-why-eyebrow {
+    font-size: 12px;
+  }
+
+  .fv-why-title {
+    font-size: clamp(26px, 3.2vw, 32px);
+  }
+
+  .fv-why-features {
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .fv-why-feature {
+    gap: 9px;
+  }
+
+  .fv-why-feature h3 {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .fv-why {
+    padding-block: 52px;
+  }
+
+  .fv-why-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+
+    width: calc(100% - 36px);
+  }
+
+  /* Text comes first on mobile */
+  .fv-why-content {
+    order: 1;
+    max-width: none;
+  }
+
+  .fv-why-visual {
+    order: 2;
+  }
+
+  .fv-why-eyebrow {
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  .fv-why-title {
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.2;
+  }
+
+  .fv-why-features {
+    gap: 19px;
+    margin-top: 24px;
+  }
+
+  .fv-why-feature {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 11px;
+    align-items: start;
+  }
+
+  .fv-why-check {
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+  }
+
+  .fv-why-feature h3 {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .fv-why-image-frame {
+    aspect-ratio: 1.25 / 1;
+    border-radius: 7px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .fv-why {
+    padding-block: 42px;
+  }
+
+  .fv-why-container {
+    width: calc(100% - 28px);
+    gap: 24px;
+  }
+
+  .fv-why-title {
+    font-size: 27px;
+  }
+
+  .fv-why-feature h3 {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-why-visual,
+  .fv-why-content,
+  .fv-why-feature,
+  .fv-why-image {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+}

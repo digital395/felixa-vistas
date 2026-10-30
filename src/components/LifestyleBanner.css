@@ -1,0 +1,295 @@
+
+/* =========================================
+   FELIXA VISTAS - LIFESTYLE QUOTE BANNER
+   Cinematic | Responsive | Premium
+========================================= */
+
+.fv-lifestyle-banner {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 380px;
+  min-height: clamp(340px, 42vw, 500px);
+
+  padding: 48px 24px;
+
+  overflow: hidden;
+  color: #fff;
+  background: #6f4938;
+}
+
+/* Background image */
+
+.fv-lifestyle-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image: url("/images/Section.webp");
+  background-position: center 55%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transform: scale(1.06);
+  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-lifestyle-banner.is-visible .fv-lifestyle-background {
+  transform: scale(1);
+}
+
+/* Warm cinematic sunset overlay */
+
+.fv-lifestyle-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(63 37 27 / 26%) 0%,
+      rgb(67 39 26 / 38%) 45%,
+      rgb(44 25 20 / 68%) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(35 24 19 / 25%) 0%,
+      transparent 50%,
+      rgb(35 24 19 / 25%) 100%
+    );
+}
+
+/* Main content */
+
+.fv-lifestyle-inner {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: min(760px, 100%);
+  min-height: 300px;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition:
+    opacity 1s 0.15s ease,
+    transform 1s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-lifestyle-banner.is-visible .fv-lifestyle-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Arch outline 
+
+.fv-lifestyle-arch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: min(265px, 65vw);
+  height: 100%;
+
+  border: 1px solid rgb(255 255 255 / 78%);
+  border-bottom-width: 2px;
+  border-radius: 145px 145px 0 0;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}*/
+
+/* Decorative quotation mark */
+
+.fv-lifestyle-quote-mark {
+  position: absolute;
+  top: 58px;
+  left: 50%;
+
+  color: #bc9667;
+
+  font-family: Georgia, serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1;
+
+  transform: translateX(-50%);
+}
+
+/* Quote text */
+
+.fv-lifestyle-quote {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  margin: 0;
+  padding: 120px 0 0;
+
+  text-align: center;
+}
+
+.fv-lifestyle-quote p {
+  max-width: 720px;
+  margin: 0 auto;
+
+  color: #fff;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(16px, 1.75vw, 21px);
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.05px;
+
+  text-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1024px) {
+  .fv-lifestyle-banner {
+    min-height: 380px;
+    padding-inline: 36px;
+  }
+
+  .fv-lifestyle-inner {
+    width: min(720px, 100%);
+  }
+
+  .fv-lifestyle-quote p {
+    max-width: 650px;
+    font-size: 18px;
+  }
+
+  .fv-lifestyle-arch {
+    width: 250px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .fv-lifestyle-banner {
+    min-height: 360px;
+    padding: 38px 24px;
+  }
+
+  .fv-lifestyle-background {
+    background-position: center center;
+  }
+
+  .fv-lifestyle-inner {
+    min-height: 285px;
+  }
+
+  .fv-lifestyle-arch {
+    width: 230px;
+  }
+
+  .fv-lifestyle-quote-mark {
+    top: 48px;
+    font-size: 52px;
+  }
+
+  .fv-lifestyle-quote {
+    padding: 110px 10px 0;
+  }
+
+  .fv-lifestyle-quote p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .fv-lifestyle-banner {
+    min-height: 390px;
+    padding: 30px 20px;
+  }
+
+  .fv-lifestyle-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(48 29 23 / 35%) 0%,
+        rgb(48 29 23 / 52%) 48%,
+        rgb(36 22 18 / 74%) 100%
+      );
+  }
+
+  .fv-lifestyle-inner {
+    min-height: 310px;
+  }
+
+  .fv-lifestyle-arch {
+    width: min(245px, 76vw);
+    border-radius: 130px 130px 0 0;
+  }
+
+  .fv-lifestyle-quote-mark {
+    top: 42px;
+    font-size: 48px;
+  }
+
+  .fv-lifestyle-quote {
+    padding: 100px 0 0;
+  }
+
+  .fv-lifestyle-quote p {
+    max-width: 350px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-lifestyle-banner {
+    min-height: 380px;
+    padding-inline: 16px;
+  }
+
+  .fv-lifestyle-inner {
+    min-height: 300px;
+  }
+
+  .fv-lifestyle-arch {
+    width: 225px;
+  }
+
+  .fv-lifestyle-quote p {
+    font-size: 14px;
+  }
+}
+
+/* Reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-lifestyle-background,
+  .fv-lifestyle-inner {
+    transition: none !important;
+    transform: none;
+  }
+
+  .fv-lifestyle-inner {
+    opacity: 1;
+  }
+}

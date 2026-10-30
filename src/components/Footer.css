@@ -1,0 +1,311 @@
+
+/* =========================================================
+   FELIXA VISTAS — CINEMATIC RESPONSIVE FOOTER
+========================================================= */
+
+.fv-footer {
+  --footer-bg: #101e2b;
+  --footer-text: #ffffff;
+  --footer-muted: rgba(255, 255, 255, 0.8);
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Ambient cinematic lighting */
+
+.fv-footer-glow {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 5%,
+      rgba(95, 133, 151, 0.12),
+      transparent 48%
+    ),
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.015),
+      transparent 45%,
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+/* Main three-column layout */
+
+.fv-footer-container {
+  width: min(100% - 100px, 1280px);
+  min-height: 205px;
+  margin: 0 auto;
+  padding: 48px 0 34px;
+
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1fr;
+  align-items: center;
+  column-gap: 36px;
+}
+
+/* Shared information styles */
+
+.fv-footer-location,
+.fv-footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-width: 0;
+}
+
+.fv-footer-info {
+  width: 100%;
+  text-align: center;
+}
+
+.fv-footer-info h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+.fv-footer-info p,
+.fv-footer-info a {
+  margin: 0;
+  color: var(--footer-muted);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.fv-footer-info a {
+  transition: color 250ms ease, opacity 250ms ease;
+}
+
+.fv-footer-info a:hover {
+  color: #ffffff;
+  opacity: 0.75;
+}
+
+.fv-footer-caption {
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.2px;
+}
+
+/* Center brand */
+
+.fv-footer-brand {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 0.9;
+  transition: transform 350ms ease;
+}
+
+.fv-footer-brand:hover {
+  transform: translateY(-3px);
+}
+
+.fv-footer-brand-top {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.fv-footer-brand-top span {
+  color: #d9a83c;
+}
+
+.fv-footer-brand-bottom {
+  margin-top: 1px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3.2vw, 39px);
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+
+/* Contact column */
+
+.fv-footer-contact-link {
+  display: inline-block;
+  min-height: 15px;
+  font-size: 18px;
+}
+
+/* Copyright bar */
+
+.fv-footer-bottom {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 49px;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+  text-align: center;
+}
+
+.fv-footer-bottom p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
+.fv-footer-bottom span {
+  padding: 0 3px;
+  color: #d9a83c;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .fv-footer-container {
+    width: calc(100% - 64px);
+    min-height: 190px;
+    padding: 40px 0 30px;
+    grid-template-columns: 1fr 0.65fr 1fr;
+    column-gap: 20px;
+  }
+
+  .fv-footer-info h3 {
+    font-size: 13px;
+  }
+
+  .fv-footer-info p,
+  .fv-footer-info a {
+    font-size: 10px;
+  }
+
+  .fv-footer-brand-top {
+    font-size: 16px;
+  }
+
+  .fv-footer-brand-bottom {
+    font-size: 31px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .fv-footer-container {
+    width: calc(100% - 36px);
+    min-height: auto;
+    padding: 36px 0 28px;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "location contact";
+    align-items: start;
+    column-gap: 18px;
+    row-gap: 30px;
+  }
+
+  .fv-footer-brand {
+    grid-area: brand;
+    margin-bottom: 2px;
+  }
+
+  .fv-footer-brand-top {
+    font-size: 17px;
+  }
+
+  .fv-footer-brand-bottom {
+    font-size: 36px;
+  }
+
+  .fv-footer-location {
+    grid-area: location;
+  }
+
+  .fv-footer-contact {
+    grid-area: contact;
+  }
+
+  .fv-footer-location,
+  .fv-footer-contact {
+    gap: 24px;
+    align-items: center;
+  }
+
+  .fv-footer-info h3 {
+    font-size: 12px;
+  }
+
+  .fv-footer-info p,
+  .fv-footer-info a {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .fv-footer-caption {
+    font-size: 7px !important;
+  }
+
+  .fv-footer-bottom {
+    min-height: 46px;
+    padding: 12px 10px;
+  }
+
+  .fv-footer-bottom p {
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+  .fv-footer-container {
+    width: calc(100% - 24px);
+    column-gap: 10px;
+    row-gap: 25px;
+  }
+
+  .fv-footer-info h3 {
+    font-size: 11px;
+  }
+
+  .fv-footer-info p,
+  .fv-footer-info a {
+    font-size: 9px;
+  }
+
+  .fv-footer-brand-bottom {
+    font-size: 32px;
+  }
+}
+
+/* Respect reduced-motion accessibility settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-footer-brand,
+  .fv-footer-info a {
+    transition: none;
+  }
+}

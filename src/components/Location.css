@@ -1,0 +1,317 @@
+
+/* =========================================
+   FELIXA VISTAS - LOCATION SECTION
+   Equal Columns | Cinematic | Responsive
+========================================= */
+
+.fv-location-section {
+  --location-accent: #287875;
+  --location-heading: #292c35;
+  --location-text: #393b44;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: clamp(64px, 7vw, 100px) 0;
+
+  background: #fff;
+  color: var(--location-text);
+}
+
+/* =========================================
+   EQUAL TWO-COLUMN LAYOUT
+========================================= */
+
+.fv-location-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+
+  gap: clamp(32px, 4vw, 60px);
+
+  width: min(1400px, calc(100% - 100px));
+  margin-inline: auto;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.fv-location-content {
+  min-width: 0;
+  max-width: 100%;
+
+  opacity: 0;
+  transform: translate3d(-28px, 0, 0);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-location-section.is-visible .fv-location-content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fv-location-eyebrow {
+  display: inline-block;
+  margin-bottom: 5px;
+
+  color: var(--location-accent);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.4;
+}
+
+.fv-location-title {
+  margin: 0 0 16px;
+
+  color: var(--location-heading);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(27px, 2.55vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.65px;
+
+  text-wrap: balance;
+}
+
+.fv-location-description {
+  max-width: 540px;
+  margin: 0;
+
+  color: var(--location-text);
+
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0.02px;
+}
+
+/* =========================================
+   RIGHT IMAGE
+========================================= */
+
+.fv-location-visual {
+  min-width: 0;
+  width: 100%;
+
+  opacity: 0;
+  transform: translate3d(28px, 0, 0);
+
+  transition:
+    opacity 1s 0.12s ease,
+    transform 1s 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-location-section.is-visible .fv-location-visual {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fv-location-image-frame {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  aspect-ratio: 1.38 / 1;
+
+  overflow: hidden;
+  border-radius: 5px;
+
+  background: #e9e8e1;
+}
+
+.fv-location-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.045);
+
+  transition:
+    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+}
+
+.fv-location-section.is-visible .fv-location-image {
+  transform: scale(1);
+}
+
+/* Subtle image treatment */
+
+.fv-location-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgb(20 31 23 / 5%) 0%,
+    transparent 55%,
+    rgb(20 31 23 / 4%) 100%
+  );
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-location-image-frame:hover .fv-location-image {
+    transform: scale(1.055);
+    filter: saturate(1.06);
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-location-container {
+    width: calc(100% - 72px);
+    gap: 36px;
+  }
+
+  .fv-location-title {
+    font-size: clamp(26px, 2.8vw, 34px);
+  }
+
+  .fv-location-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .fv-location-section {
+    padding-block: 64px;
+  }
+
+  .fv-location-container {
+    gap: 26px;
+    width: calc(100% - 48px);
+  }
+
+  .fv-location-title {
+    font-size: clamp(23px, 3.1vw, 29px);
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+  }
+
+  .fv-location-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .fv-location-image-frame {
+    aspect-ratio: 1.08 / 1;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .fv-location-section {
+    padding-block: 48px;
+  }
+
+  .fv-location-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+
+    width: calc(100% - 36px);
+  }
+
+  .fv-location-content {
+    max-width: 100%;
+  }
+
+  .fv-location-eyebrow {
+    margin-bottom: 7px;
+    font-size: 11px;
+  }
+
+  .fv-location-title {
+    margin-bottom: 13px;
+
+    font-size: clamp(27px, 7vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .fv-location-desktop-break {
+    display: none;
+  }
+
+  .fv-location-description {
+    max-width: none;
+
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .fv-location-image-frame {
+    aspect-ratio: 1.25 / 1;
+    border-radius: 7px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .fv-location-section {
+    padding-block: 40px;
+  }
+
+  .fv-location-container {
+    width: calc(100% - 28px);
+    gap: 22px;
+  }
+
+  .fv-location-title {
+    font-size: 25px;
+  }
+
+  .fv-location-description {
+    font-size: 13px;
+  }
+
+  .fv-location-image-frame {
+    aspect-ratio: 1.15 / 1;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-location-content,
+  .fv-location-visual,
+  .fv-location-image {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .fv-location-content,
+  .fv-location-visual {
+    opacity: 1;
+  }
+}

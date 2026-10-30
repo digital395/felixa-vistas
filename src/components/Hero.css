@@ -1,0 +1,881 @@
+
+/* =========================================
+   FELIXA VISTAS — CINEMATIC RESPONSIVE HERO
+========================================= */
+
+.fv-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 780px;
+  min-height: max(780px, 100svh);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: #26372e;
+  overflow: clip;
+}
+
+/* Desktop background image */
+.fv-hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image: url("/images/hero.webp");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+
+  transform: scale(1.04);
+  animation: fv-hero-reveal 1.5s ease-out forwards;
+  will-change: transform;
+}
+
+/* Cinematic contrast overlay */
+.fv-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgb(12 19 15 / 32%) 0%,
+      rgb(12 19 15 / 25%) 38%,
+      rgb(12 19 15 / 45%) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(12 16 13 / 38%) 0%,
+      transparent 27%,
+      transparent 62%,
+      rgb(12 16 13 / 48%) 100%
+    );
+}
+
+/* Hero layout */
+.fv-hero-content {
+  width: min(1540px, calc(100% - 100px));
+  margin: 0 auto;
+
+  padding-top: 50px;
+  padding-bottom: 125px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fv-hero-copy {
+  width: min(740px, 58%);
+  text-align: center;
+  animation: fv-content-reveal 1s 0.2s both;
+}
+
+/* Location label */
+.fv-location {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 5px;
+
+  color: #fff;
+  background: rgb(255 255 255 / 17%);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Main heading */
+.fv-hero-title {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3.3vw, 62px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  padding-bottom: 10px;
+  text-wrap: balance;
+  text-shadow: 0 4px 24px rgb(0 0 0 / 15%);
+}
+
+.fv-hero-title span {
+  color: #e8ca91;
+}
+
+/* Description */
+.fv-hero-description {
+  max-width: 550px;
+  margin: 24px auto 28px;
+  color: rgb(255 255 255 / 92%);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* Primary CTA */
+.fv-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 54px;
+  padding: 0 28px;
+  /* padding-top: 10px; */
+
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 7px;
+
+  color: #fff;
+  background: #2b716e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+
+  box-shadow: 0 12px 35px rgb(0 0 0 / 12%);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fv-hero-button span {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.fv-hero-button:hover {
+  background: #215a57;
+  box-shadow: 0 16px 38px rgb(0 0 0 / 20%);
+  transform: translateY(-3px);
+}
+
+.fv-hero-button:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   STATISTICS PANEL
+========================================= */
+/* =========================================
+   FELIXA VISTAS — PREMIUM STATISTICS PANEL
+========================================= */
+
+.fv-stats-wrap {
+  position: absolute;
+  z-index: 3;
+
+  right: 0;
+  bottom: -1px;
+  left: 0;
+
+  width: min(1380px, calc(100% - 100px));
+  margin-inline: auto;
+
+  transform: translateY(35%);
+}
+
+
+/* =========================================
+   MAIN PANEL
+========================================= */
+
+.fv-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  position: relative;
+
+  min-height: 168px;
+
+  padding: 24px 18px;
+  margin-bottom: 65px;
+
+  overflow: hidden;
+
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 18px;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(45 121 116 / 98%),
+      rgb(35 103 99 / 98%)
+    );
+
+  box-shadow:
+    0 25px 70px rgb(13 47 43 / 22%),
+    0 8px 25px rgb(0 0 0 / 10%);
+}
+
+
+/* Subtle light across the panel */
+
+.fv-stats::before {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgb(255 255 255 / 9%),
+      transparent 28%,
+      transparent 70%,
+      rgb(255 255 255 / 5%)
+    );
+
+  content: "";
+}
+
+
+/* =========================================
+   INDIVIDUAL STAT
+========================================= */
+
+.fv-stat {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  padding: 14px 24px;
+
+  text-align: center;
+}
+
+
+/* Vertical separators */
+
+.fv-stat:not(:last-child)::after {
+  position: absolute;
+
+  top: 18%;
+  right: 0;
+  bottom: 18%;
+
+  width: 1px;
+
+  background: rgb(255 255 255 / 24%);
+
+  content: "";
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.fv-stat-number {
+  margin-bottom: 9px;
+
+  color: #fff;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: clamp(32px, 3.1vw, 48px);
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -1.5px;
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 4px 18px rgb(0 0 0 / 10%);
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.fv-stat-label {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 2px;
+
+  color: rgb(255 255 255 / 88%);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.fv-stat-label span {
+  display: block;
+}
+
+
+/* =========================================
+   SPECIAL ACCENT
+========================================= */
+
+.fv-stat:first-child .fv-stat-number,
+.fv-stat:nth-child(2) .fv-stat-number {
+  color: #f0d49d;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .fv-stat {
+    transition:
+      background 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .fv-stat:hover {
+    background: rgb(255 255 255 / 5%);
+  }
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+  .fv-stats-wrap {
+    width: min(1420px, calc(100% - 120px));
+  }
+
+  .fv-stats {
+    min-height: 180px;
+
+    padding: 28px 22px;
+
+    border-radius: 20px;
+  }
+
+  .fv-stat {
+    padding-inline: 28px;
+  }
+
+  .fv-stat-number {
+    font-size: 52px;
+  }
+
+  .fv-stat-label {
+    font-size: 12px;
+    letter-spacing: 1.6px;
+  }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-stats-wrap {
+    width: calc(100% - 64px);
+  }
+
+  .fv-stats {
+    min-height: 155px;
+
+    padding: 20px 10px;
+
+    margin-bottom: 58px;
+
+    border-radius: 17px;
+  }
+
+  .fv-stat {
+    padding-inline: 14px;
+  }
+
+  .fv-stat-number {
+    font-size: clamp(30px, 3.5vw, 42px);
+  }
+
+  .fv-stat-label {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .fv-stats-wrap {
+    bottom: 24px;
+
+    width: calc(100% - 36px);
+
+    transform: none;
+  }
+
+  .fv-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    min-height: auto;
+
+    padding: 8px;
+
+    margin-bottom: 0;
+
+    border-radius: 18px;
+  }
+
+  .fv-stat {
+    min-height: 112px;
+
+    padding: 18px 10px;
+  }
+
+  /* Horizontal divider */
+  .fv-stat:nth-child(-n + 2) {
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+  }
+
+  /* Vertical divider */
+  .fv-stat:nth-child(odd)::after {
+    display: block;
+
+    top: 16%;
+    right: 0;
+    bottom: 16%;
+  }
+
+  .fv-stat:nth-child(even)::after {
+    display: none;
+  }
+
+  .fv-stat-number {
+    margin-bottom: 8px;
+
+    font-size: clamp(27px, 5vw, 36px);
+  }
+
+  .fv-stat-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-stats-wrap {
+    bottom: 18px;
+
+    width: calc(100% - 24px);
+  }
+
+  .fv-stats {
+    padding: 6px;
+
+    border-radius: 15px;
+
+    box-shadow:
+      0 18px 45px rgb(13 47 43 / 24%),
+      0 6px 18px rgb(0 0 0 / 10%);
+  }
+
+  .fv-stat {
+    min-height: 102px;
+
+    padding: 13px 5px;
+  }
+
+  .fv-stat-number {
+    margin-bottom: 7px;
+
+    font-size: clamp(22px, 7vw, 30px);
+
+    letter-spacing: -0.8px;
+  }
+
+  .fv-stat-label {
+    gap: 2px;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.8px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-stats-wrap {
+    width: calc(100% - 18px);
+  }
+
+  .fv-stats {
+    padding: 5px;
+
+    border-radius: 13px;
+  }
+
+  .fv-stat {
+    min-height: 94px;
+
+    padding: 10px 3px;
+  }
+
+  .fv-stat-number {
+    font-size: 21px;
+  }
+
+  .fv-stat-label {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+  .fv-hero-copy {
+    width: 760px;
+  }
+
+  .fv-stats {
+    min-height: 245px;
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .fv-hero {
+    min-height: 760px;
+    min-height: max(760px, 100svh);
+  }
+
+  .fv-hero-content,
+  .fv-stats-wrap {
+    width: calc(100% - 64px);
+  }
+
+  .fv-hero-copy {
+    width: 60%;
+  }
+
+  .fv-stats {
+    min-height: 190px;
+    padding: 26px 10px;
+    border-radius: 20px;
+  }
+
+  .fv-stat {
+    padding-inline: 12px;
+  }
+}
+
+/* =========================================
+   TABLET
+   Uses desktop image by default
+========================================= */
+
+@media (max-width: 768px) {
+  .fv-hero {
+    min-height: 800px;
+    min-height: max(800px, 100svh);
+    align-items: center;
+  }
+
+  .fv-hero-background {
+    background-position: 45% center;
+  }
+
+  .fv-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(12 19 15 / 45%) 0%,
+        rgb(12 19 15 / 25%) 30%,
+        rgb(12 19 15 / 48%) 70%,
+        rgb(12 19 15 / 68%) 100%
+      );
+  }
+
+  .fv-hero-content {
+    width: calc(100% - 44px);
+    padding-top: 80px;
+    padding-bottom: 230px;
+    justify-content: center;
+  }
+
+  .fv-hero-copy {
+    width: min(600px, 100%);
+  }
+
+  .fv-hero-title {
+    font-size: clamp(42px, 8vw, 64px);
+    letter-spacing: -1.5px;
+  }
+
+  .fv-hero-description {
+    max-width: 450px;
+    font-size: 15px;
+  }
+
+  .fv-stats-wrap {
+    bottom: 24px;
+    width: calc(100% - 36px);
+    transform: none;
+  }
+
+  .fv-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: auto;
+    padding: 14px;
+    margin-bottom: 0;
+    border-radius: 18px;
+  }
+
+  .fv-stat {
+    min-height: 120px;
+    padding: 18px 8px;
+  }
+
+  .fv-stat:nth-child(odd):not(:last-child)::after {
+    display: block;
+  }
+
+  .fv-stat:nth-child(even)::after {
+    display: none;
+  }
+
+  .fv-stat:nth-child(-n + 2) {
+    border-bottom: 1px solid rgb(255 255 255 / 28%);
+  }
+
+  .fv-stat-number {
+    margin-bottom: 8px;
+    font-size: clamp(27px, 5vw, 36px);
+  }
+
+  .fv-stat-label {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   MOBILE BACKGROUND IMAGE
+   herosectionmobile.webp
+========================================= */
+
+@media (max-width: 600px) {
+  .fv-hero-background {
+    background-image: url("/images/herosectionmobile.webp");
+    background-position: center center;
+    background-size: cover;
+    transform: scale(1.02);
+    animation: fv-mobile-hero-reveal 1.3s ease-out forwards;
+  }
+
+  .fv-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(12 19 15 / 30%) 0%,
+        rgb(12 19 15 / 25%) 24%,
+        rgb(12 19 15 / 45%) 58%,
+        rgb(12 16 13 / 75%) 100%
+      );
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .fv-hero {
+    min-height: 780px;
+    min-height: max(780px, 100svh);
+  }
+
+  .fv-hero-content {
+    width: calc(100% - 32px);
+    padding-top: 65px;
+    padding-bottom: 235px;
+  }
+
+  .fv-hero-copy {
+    width: 100%;
+  }
+
+  .fv-location {
+    margin-bottom: 18px;
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .fv-hero-title {
+    font-size: clamp(36px, 10vw, 48px);
+    line-height: 1.17;
+    letter-spacing: -1.2px;
+  }
+
+  .fv-desktop-break {
+    display: none;
+  }
+
+  .fv-hero-description {
+    max-width: 340px;
+    margin: 18px auto 22px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .fv-hero-button {
+    min-height: 48px;
+    padding-inline: 20px;
+    gap: 14px;
+    font-size: 11px;
+  }
+
+  .fv-stats-wrap {
+    bottom: 18px;
+    width: calc(100% - 24px);
+  }
+
+  .fv-stats {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .fv-stat {
+    min-height: 105px;
+    padding: 12px 4px;
+  }
+
+  .fv-stat-number {
+    margin-bottom: 8px;
+    font-size: clamp(23px, 7vw, 30px);
+    letter-spacing: -0.5px;
+  }
+
+  .fv-stat-label {
+    gap: 3px;
+    font-size: 10px;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .fv-hero-title {
+    font-size: 34px;
+  }
+
+  .fv-stat {
+    min-height: 100px;
+  }
+
+  .fv-stat-number {
+    font-size: 22px;
+  }
+
+  .fv-stat-label {
+    font-size: 9px;
+  }
+}
+
+/* =========================================
+   CINEMATIC ANIMATIONS
+========================================= */
+
+@keyframes fv-hero-reveal {
+  from {
+    transform: scale(1.09);
+  }
+
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes fv-mobile-hero-reveal {
+  from {
+    transform: scale(1.07);
+  }
+
+  to {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fv-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fv-hero-background,
+  .fv-hero-copy {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .fv-hero-button,
+  .fv-hero-button span {
+    transition: none;
+  }
+}
