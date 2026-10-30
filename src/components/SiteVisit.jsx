@@ -245,25 +245,25 @@ function SiteVisit() {
         </div>
 
         {/* RIGHT: GOOGLE MAP */}
-        <div className="fv-site-visit-map">
-          <iframe
-            title="Find Felixa Vistas, Padappai, Chennai on Google Maps"
-            src="https://maps.google.com/maps?q=12.9043152%2C80.0427169&z=16&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+<div className="fv-site-visit-map">
+  <iframe
+    title="Find Felixa Vistas, Padappai, Chennai on Google Maps"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.6258745519976!2d80.0427169!3d12.9043152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f5f4e1bb7687%3A0x79bc4c346ec549f0!2sFELIXA%20VISTAS!5e1!3m2!1sen!2sin!4v1793362845898!5m2!1sen!2sin"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    allowFullScreen
+  />
 
-          <a
-            className="fv-map-open-link"
-            href="https://www.google.com/maps/place/FELIXA+VISTAS/@12.9043152,80.0427169,17z/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span aria-hidden="true">↗</span>
-            Open in Google Maps
-          </a>
-        </div>
+  <a
+    className="fv-map-open-link"
+    href="https://maps.app.goo.gl/QpqqRsgdpUp1y3Rh6"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span aria-hidden="true">↗</span>
+    Open in Google Maps
+  </a>
+</div>
       </div>
     </section>
   );

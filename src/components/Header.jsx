@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import "./Header.css";
-
+import { openEnquiryPopup } from "./EnquiryPopup";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Amenities", href: "#amenities" },
@@ -96,16 +96,15 @@ function Header() {
             </a>
           ))}
 
-          <a
-            href="#enquiry"
-            className="fv-nav-cta"
-            onClick={closeMenu}
-          >
-            <span>Enquire Now</span>
-            <span className="fv-cta-arrow" aria-hidden="true">
+          <button
+  type="button"
+  onClick={openEnquiryPopup}
+   className="fv-nav-cta"
+>
+  Enquire Now  <span className="fv-cta-arrow" aria-hidden="true">
               ↗
             </span>
-          </a>
+</button>
         </nav>
       </div>
     </header>

@@ -59,8 +59,8 @@
   width: min(1540px, calc(100% - 100px));
   margin: 0 auto;
 
-  padding-top: 50px;
-  padding-bottom: 125px;
+  padding-top: 10px;
+  padding-bottom: 250px;
 
   display: flex;
   justify-content: flex-end;
@@ -87,7 +87,7 @@
 
   color: #fff;
   background: rgb(255 255 255 / 17%);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.1px;
 
@@ -709,7 +709,7 @@
 
 @media (max-width: 600px) {
   .fv-hero-background {
-    background-image: url("/images/herosectionmobile.webp");
+    background-image: url("/images/hero.webp");
     background-position: center center;
     background-size: cover;
     transform: scale(1.02);

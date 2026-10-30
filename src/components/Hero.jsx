@@ -1,6 +1,6 @@
 
 import "./Hero.css";
-
+import { openEnquiryPopup } from "./EnquiryPopup";
 const statistics = [
   {
     number: "7.30",
@@ -20,9 +20,6 @@ const statistics = [
   },
 ];
 
- 
-
-  
 function Hero() {
   return (
     <section className="fv-hero" id="home">
@@ -32,30 +29,7 @@ function Hero() {
 
       <div className="fv-hero-content">
         <div className="fv-hero-copy">
-          <div className="fv-location">
-            <svg
-              viewBox="0 0 24 24"
-              width="17"
-              height="17"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              />
-              <circle
-                cx="12"
-                cy="10"
-                r="2.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              />
-            </svg>
 
-            <span>PADAPPAI, CHENNAI</span>
-          </div>
 
           <h1 className="fv-hero-title">
             A NEW ADDRESS TO BUILD 
@@ -69,11 +43,40 @@ function Hero() {
             Thoughtfully planned homes, modern living,
             and a community designed around you.
           </p> */}
+         <a
+  className="fv-location"
+  href="https://www.google.com/maps/place/FELIXA+VISTAS/@12.9043152,80.0427169,17z/data=!3m1!4b1!4m6!3m5!1s0x3a52f5f4e1bb7687:0x79bc4c346ec549f0!8m2!3d12.9043152!4d80.0427169!16s%2Fg%2F11zh299rdy"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="View Felixa Vistas location on Google Maps"
+>
+  <svg
+    viewBox="0 0 24 24"
+    width="17"
+    height="17"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+    <circle
+      cx="12"
+      cy="10"
+      r="2.5"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+  </svg>
 
-          <a href="#enquiry" className="fv-hero-button">
-            EXPLORE YOUR HOME
-            <span aria-hidden="true">↗</span>
-          </a>
+  <span>PADAPPAI, CHENNAI</span>
+</a>
+<br/>
+         <button className="fv-hero-button" onClick={openEnquiryPopup}>
+EXPLORE YOUR HOME
+</button>
         </div>
       </div>
 

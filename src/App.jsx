@@ -1,4 +1,5 @@
 
+import EnquiryPopup from "./components/EnquiryPopup";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AboutProject from "./components/AboutProject";
@@ -6,7 +7,7 @@ import AboutProject from "./components/AboutProject";
 import WhyUs from "./components/WhyUs";
 import Amenities from "./components/Amenities";
 import LifestyleBanner from "./components/LifestyleBanner";
-import Location from "./components/Location";
+// import Location from "./components/Location";
 import LocationAdvantages from "./components/LocationAdvantages";
 import HomeLoan from "./components/HomeLoan";
 import FAQ from "./components/FAQ";
@@ -20,7 +21,7 @@ function App() {
       <main>
         <Hero />
         <AboutProject />
-  {/* <ProjectVideo /> */}
+ {/**<ProjectVideo /> */} 
    <WhyUs />
      <Amenities />
      <LifestyleBanner />
@@ -33,6 +34,7 @@ function App() {
   <Footer />
         {/* Other sections will go here */}
       </main>
+           <EnquiryPopup />
     </>
   );
 }

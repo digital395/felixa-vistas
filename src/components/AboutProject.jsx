@@ -63,11 +63,11 @@ function AboutProject() {
             looking for a promising real estate investment, this is an
             opportunity to make a valuable move.
           </p>
-          <p className="fv-about-description">
+          {/* <p className="fv-about-description">
             Adding to the convenience, FELIXA VISTAS comes with APF approvals
             from SBI, HDFC, ICICI, AXIS, IDBI and LIC, with loan facilities
             available up to 80%.{" "}
-          </p>
+          </p> */}
           <a href="#enquiry" className="fv-about-link">
             DISCOVER THE PROJECT
             <span aria-hidden="true">↗</span>
